@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbars for data tables and code */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Flowing FOMO & Multiplier Leaderboard Animations */
+@keyframes fomoGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fomoShimmerSweep {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+@keyframes fomoTickerMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.fomo-flowing-bg {
+  background-size: 260% 260%;
+  animation: fomoGradientFlow 6s ease infinite;
+}
+
+.fomo-shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.fomo-shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(251, 191, 36, 0.14) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: fomoShimmerSweep 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.fomo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: fomoTickerMarquee 22s linear infinite;
+}
+
+.fomo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Pulsing Golden Halo Animation for >50% Unrealized PnL in WalletDrawer */
+@keyframes pnlGoldenHaloPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.55), 0 0 18px 2px rgba(245, 158, 11, 0.35);
+    border-color: rgba(251, 191, 36, 0.85);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(251, 191, 36, 0), 0 0 28px 6px rgba(251, 191, 36, 0.55);
+    border-color: rgba(253, 224, 71, 1);
+  }
+}
+
+.pnl-golden-halo {
+  animation: pnlGoldenHaloPulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Live Whale Alert Horizontal Ticker */
+@keyframes whaleTickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.whale-ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: whaleTickerScroll 34s linear infinite;
+}
+
+.whale-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Floating Buy Danmaku (买入弹幕) Animation in Whale Alert Ticker */
+@keyframes buyDanmakuFloat {
+  0% {
+    opacity: 0;
+    transform: translate3d(18px, 12px, 0) scale(0.92);
+  }
+  14% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+  82% {
+    opacity: 1;
+    transform: translate3d(-24px, -6px, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-42px, -14px, 0) scale(0.95);
+  }
+}
+
+.buy-danmaku-float {
+  will-change: transform, opacity;
+  animation: buyDanmakuFloat 4.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+
+

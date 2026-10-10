@@ -1,0 +1,6 @@
+{
+  "name": "FourFund - On-Chain Meme ETF & Fund Supermarket",
+  "description": "基于 OpenFour 模块化引擎的链上 Meme ETF 与基金超市 (BNB Chain)。Stop chasing frogs. Start buying the pond.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
