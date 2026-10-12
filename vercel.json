@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "framework": "vite",
+  "framework": null,
+  "installCommand": "echo 'Using precompiled dist bundle'",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
