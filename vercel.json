@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "echo 'Using precompiled dist bundle'",
-  "buildCommand": "npm run build",
+  "framework": "vite",
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npx vite build",
   "outputDirectory": "dist",
   "rewrites": [
     {
